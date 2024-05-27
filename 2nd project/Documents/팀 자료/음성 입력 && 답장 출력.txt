@@ -1,0 +1,74 @@
+!pip install openai
+!pip install langchain langchain_openai tiktoken python-dotenv
+
+import openai
+import langchain
+from dotenv import load_dotenv
+import os
+from langchain.prompts import PromptTemplate
+from langchain_openai import ChatOpenAI
+from langchain.chains import LLMChain
+from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler as s # 이거는 굳이?
+# API KEY 정보 로드 OpenAI env 파일
+load_dotenv('경로+파일이름.env')
+#display(load_dotenv) --> 이거 True 나오면 연결 된거니깐 True 뜨면 주석처리 하세여
+# os 라이브러리 활용하여 .env 파일에 선언된 인자를 확인
+OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
+OPENAI_API_KEY
+
+
+llm = ChatOpenAI(
+    # 창의성 정도 설정(0.0~2.0)
+    temperature= 0.1, # 값이 크면 더 확장된 개념까지 연결하여 알려줌
+    max_tokens = 2048,
+    model_name = 'gpt-4'
+
+)
+
+llm = ChatOpenAI(
+    streaming = True,
+    callbacks=[s()]
+)
+
+### 위에 둘중에 입맛에 맞게 하나 쓰세요
+
+from openai import OpenAI
+client = OpenAI()
+inputData = '경로 + 파일 이름'
+audio_file = open(inputData, "rb")
+transcription = client.audio.transcriptions.create(
+  model="whisper-1",
+  file=audio_file,
+
+)
+
+template = "{text}에 대한 답변을 잘 해줘" ### 어떻게 할지 잘 적어주세요 
+
+prompt_template = PromptTemplate(
+    template=template,
+    input_variables= ['text']
+)
+
+
+
+
+llm_chain = LLMChain(
+    prompt = prompt_template,
+    llm = llm
+)
+a = llm_chain.invoke({'text' : f'{transcription.text}'})
+
+from pathlib import Path
+
+
+
+response = client.audio.speech.create(
+    model="tts-1",
+    voice="alloy",
+    input= a['text'],
+)
+speech_file_path = "1.mp3" 
+with open(speech_file_path, "wb") as f:
+    f.write(response.content)
+import IPython.display as ipd
+ipd.Audio('1.mp3') 

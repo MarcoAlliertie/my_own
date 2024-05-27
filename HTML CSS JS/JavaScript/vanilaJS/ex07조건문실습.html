@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조건문실습</title>
+</head>
+<body>
+    <script>
+        // let num1 = parseInt(prompt('숫자를 입력하세요'));
+        // if (num1%2 === 0 && num1% 6 === 0){
+        //     console.log('2와 6의 배수입니다');
+        // }else{
+        //     console.log('2와 6의 배수가 아닙니다');
+        // }
+
+        // let num1 = parseInt(prompt('첫 번째 숫자를 입력하세요'));
+        // let num2 = parseInt(prompt('두 번째 숫자를 입력하세요'));
+        // if (num1 >num2){console.log('첫째가 둘째보다 큽니다.');
+        // }else if(num1<num2){console.log('첫째가 둘째보다 작습니다.');
+        // }else{console.log('같');
+        // }
+
+        //학점계산기 문제(switch문)
+        //100-96점: A+|95-91:A|90-86:B+|85-80: B| 이외 F
+        let kor = parseInt(prompt('국어점수 입력'));
+        let eng = parseInt(prompt('영어점수 입력'));
+        let math = parseInt(prompt('수학점수 입력'));
+        let sum = (kor+eng+math)
+        let avg = sum/3;
+        console.log(`당신의 총점은 ${sum}점입니다`);
+        console.log('당신의 평균은 '+avg+'점입니다');
+        switch(avg>=95){
+        case (true):
+            console.log('A+');
+            break;
+        case(false):
+            switch(avg>=90){
+                case(true):
+                console.log('A');
+                break;
+                case(false):
+                    switch(avg>=85){
+                        case(true):
+                        console.log('B+');
+                        break;
+                        case(false):
+                        switch(avg>=80){
+                            case(true):
+                            console.log('B');
+                            break;
+                            case(false):
+                            console.log('F');
+                            break;
+                        }
+                    }
+            }
+        }
+
+        //다중 if문을 쓰면 훨씬 쉬운데!
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <img src="" alt ="">
+    <br>
+    <span>좋아요</span>
+    <button class = "likeBtn">🤍</button>
+    <span>0</span>
+    <br><br>
+    <input type="text">
+    <button class="textBtn">댓글 작성</button>
+    <br>
+    <div>
+        
+    </div>
+    <script>
+        // 속성 변경, 제거 관련
+        // attr(변경할 속성, 속성의값) : 속성 변경 메소드
+        //$(A).append(B) : B를 A요소 마지막 위치에 추가 메소드
+
+        //input 태그 관련
+        //val(): input 입력 값 접근 (vanilaJS - value 속성)
+
+        //부모 관련
+        //parent() : 가장 가까운 부모 요소 선택
+        //parents() : 모든 부모 요소 선택
+
+        // removeAttr(제거할속성) : 속성 제거 메소드
+        // removeClass(클래스이름) : 클래스 속성 제거 메소드
+        // addClass(클래스이름) : 추가할 클래스 속성 메소드
+        // $(A).prepend(B) : B를 A요소 첫번째 위치에 추가 메소드
+        // $(A).append(B) : B를 A요소 마지막 위치에 추가 메소드
+
+          // 1. 좋아요 버튼 클릭시
+        // 0 > 1
+        // 문서에 접근한다음에 이벤트 실행시킨다, 클래스값을 통해서 지정
+        // 메소드를 사용해서 속성 추가
+        $(document).on('click', 'button[class=likeBtn]', function(){
+             $(this).text('💙')
+             $('.likeBtn+span').text('1개')
+             $(this).attr('class', 'dislikeBtn');
+            //$(this).removeClass('likeBtn').addClass('dislikeBtn');
+        })
+
+        // 2. 좋아요 취소 버튼 클릭시
+        // 1 > 0
+         // 문서에 접근한다음에 이벤트 실행시킨다, 클래스값을 통해서 지정
+         $(document).on('click', 'button[class=dislikeBtn]', (e)=>{
+            $(e.target).text('🤍')
+            $('.dislikeBtn+span').text('0개')
+            $(e.target).attr('class', 'likeBtn');
+         })
+
+        //3. 댓글 작성 버튼 클릭시
+        //댓글 내용 + 삭제 버튼 생성    
+        $(document).on('click','.textBtn',()=>{
+            // console.log('text btn');
+            //input 요소 내 입력값 가져오기
+            let inputText = $('input').val();
+            $('div').append(`
+            <p>
+            ${inputText}
+            <button class="removeBtn">삭제</button>
+        </p>
+            `)
+            //input 요소 내 입력값 비워주기
+            $('input').val('');
+        })
+
+        //4. 삭제 버튼 클릭 시
+        //해당 댓글 + 삭제 버튼 삭제
+        $(document).on('click','.removeBtn',(e)=>{
+        // console.log('remove btn'); //중간중간 잘 동작하는지 이렇게 콘솔 로그로 확인해 주자
+        // $(e.target).parent().remove();
+        $(e.target).closest('p').remove();
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex Practice</title>
+<style>
+    /* 
+    img-section에 예시 이미지를 background-image 속성으로 지정
+
+    */
+    .main-container{
+        /* 
+        (1)전체 영역을 container로 지정
+        카드들을 item으로 설정
+        */
+        display: flex;
+        /* 
+        (2)카드들이 전체 영역을 벗어날 때 줄바꿈될 수 있게 설정
+        */
+        flex-wrap: wrap;
+
+        /* 
+        (3)카드들의 메인축 공간 배분 균일하게 설정
+        */
+        justify-content: space-evenly;
+    }
+    .card-container{
+        /* 
+        (4) 카드 영역을 container로 지정 
+        카드 내 이미지와 텍스트가 item으로 설정
+         */
+        display: flex;
+        background-color: lightyellow;    
+        margin-bottom: 25px;
+        /*
+        카드 내 이미지와 텍스트가 세로로 비치되도록 설정 
+         */
+         flex-direction: column;
+         /* 
+         (6) 카드 내 텍스트 가운데 정렬 배치
+         */
+         align-items: center;
+          }
+    .img-section{
+        background-image: url(https://img.freepik.com/premium-photo/famous-saint-peter-s-square-in-vatican-and-aerial-view-of-the-rome-city-during-sunny-day-sunset_136401-3982.jpg);
+        width: 200px;
+        height: 200px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;  
+    }
+    .text-section{
+        display: flex;
+        font-size: 1rem;
+            font-weight: bold; 
+    }
+    .img2{
+        background-image: url(https://res.klook.com/image/upload/c_fill,w_1265,h_712/q_80/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/e8oqd4okmwrltzzynqkn.webp);
+        width: 200px;
+        height: 200px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;  
+    }
+    .text2{
+        display: flex;
+        font-size: 1rem;
+            font-weight: bold;         
+    }
+    .img3{
+        background-image: url(https://ak-d.tripcdn.com/images/0100z120008oxisza2A4C_C_400_280_R5.jpg_.webp);
+        width: 200px;
+        height: 200px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;  
+        display: flex; 
+        
+    }
+    .text3{
+        display: flex;
+        font-size: 1rem;
+            font-weight: bold; 
+           flex-direction: row; 
+           justify-content: center;         
+    }
+    .img4{
+        background-image: url(https://www.gotokyo.org/shared/site_gotokyo/images/beyond-tokyo/nikko/1.jpg);
+        width: 200px;
+        height: 200px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;  
+        display: flex; 
+        
+    }
+    .text4{
+        display: flex;
+        font-size: 1rem;
+            font-weight: bold; 
+           flex-direction: row; 
+           justify-content: center;         
+    }
+    .img5{
+        background-image: url(https://mblogthumb-phinf.pstatic.net/20160911_99/scarletkim93_1473568703922Yu4eF_JPEG/image_3061786851473568237905.jpg?type=w800);
+        width: 200px;
+        height: 200px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;  
+        display: flex; 
+        
+    }
+    .text5{
+        display: flex;
+        font-size: 1rem;
+            font-weight: bold; 
+           flex-direction: row; 
+           justify-content: center;         
+    }
+    .img6{
+        background-image: url(https://t1.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/user/3zNv/image/lmOfJBFic90jA8dl89F7mGnR57E.jpg);
+        width: 200px;
+        height: 200px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;  
+        display: flex; 
+        
+    }
+    .text6{
+        display: flex;
+        font-size: 1rem;
+            font-weight: bold; 
+           flex-direction: row; 
+           justify-content: center;         
+    }
+</style>
+</head>
+
+<body>
+    <!-- 전체 영역 -->
+    <div class="main-container">
+        <!-- 카드 하나의 영역 -->
+        <div class="card-container">
+            <!-- 사진 영역 -->
+            <div class="img-section">
+                <!-- 이름 영역 -->
+            </div>
+            <div class="text-section">
+                성 베드로 광장
+            </div>
+        </div>
+            <div class="card-container">
+                <div class="img2">
+                  
+                </div>
+                <div class="text2">
+                    산타마리아 델 피오레 성당
+                </div>
+            </div>
+
+            <div class="card-container">
+                <div class="img3">
+                    
+                </div>
+                <div class="text3">
+                    중국 장가계
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="img4">
+                   
+                </div>
+                <div class="text4">
+                    닛코 도쇼구
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="img5">
+                    
+                </div>
+                <div class="text5">
+                    우스펜스키 대성당
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="img6">
+                   
+                </div>
+                <div class="text6">
+                    그라나다 알 함브라 궁전
+                </div>
+            </div>
+    </div>
+</body>
+</html>

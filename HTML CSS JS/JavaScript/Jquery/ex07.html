@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.7.1.min.js"></script>
+</head>
+<body>
+<h3 id="first">컴퓨터의 선택 : </h3>
+<h3>나의 선택 : </h3>
+<h3>게임 결과 : </h3>
+<button class="scissor">가위</button>
+<button class="rock">바위</button>
+<button class="paper">보</button>
+</body>
+<script>
+    $('button').on('click',function(){
+        let com = parseInt(Math.random()*3);
+        $('#first+h3').text(`나의 선택 : ${$(this).text()}`)
+        let my = 0;
+        switch($('#first+h3').text){
+            case('가위'):
+            my= 0;
+            break;
+            case('바위'):
+            my= 1;
+            break;
+            case('보'):
+            my= 2;
+            break;
+            }
+        if (com === 0){
+        $('#first').text(`컴퓨터의 선택 : ${$('.scissor').text()}`)
+    }else if(com === 1){
+        $('#first').text(`컴퓨터의 선택 : ${$('.rock').text()}`)
+    }else{$('#first').text(`컴퓨터의 선택 : ${$('.paper').text()}`)} 
+    })
+    
+    
+
+</script>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인18-1.로또번호생성</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Jua:400" rel="stylesheet">
+    <style>
+
+        #container{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            height: 300px;
+            font-family: 'Jua';
+        }
+
+        h1{
+            margin: 0;
+            padding: 0;
+        }
+
+        #lotto-container{
+            display: flex;
+            align-items: center;
+            gap:20px;
+        }
+
+        .num{
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+            border-radius: 50px;
+            /* background-color: orange; */
+            text-align: center;
+            line-height: 100px;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        .bonus-connect{
+            font-size: 3em;
+            font-weight: bold;
+        }
+
+        .bonus{
+            background-color: lightgray;
+        }
+        
+        .btn-lotto{
+            width: 150px;
+            height: 50px;
+            border: 0;
+            border-radius: 5px;
+            box-shadow: 3px 3px black;
+            font-family: 'Jua';
+            font-size: 1.5em;        
+            font-weight: bold;    
+        }
+        .btn-lotto:hover{
+            cursor: pointer;
+        }
+        .btn-lotto:active{
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="container">
+        <h1>로또 추첨기</h1>
+        <div id="lotto-container">
+            <div class="num"></div> <!--document.getElementsByClassName("num")[0].innerText //0번째-->
+            <div class="num"></div> <!--2-->
+            <div class="num"></div> <!--3-->
+            <div class="num"></div> <!--4-->
+            <div class="num"></div> <!--5-->
+            <div class="num"></div> <!--6-->
+
+            <div class="bonus-connect">+</div>
+            <div id="bonus" class="num"></div> <!--7-->
+        </div>
+        <button class="btn-lotto" onclick="lottoPlay()">로또번호생성</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        //로또 추첨기 만들기
+        //1. 버튼을 클릭시 lottoPlay()가 실행된다.
+        //2. 1~45 사이의 랜덤한 숫자 7개가 생성된다.(중복없이)
+        //3. 생성된 7개 숫자를 웹 페이지에 출력한다.
+        // - 7개 중 6개는 class가 "num"인 div태그에 출력한다.
+        // - 마지막 번호를 id가 'bonus'인 div태그에 출력한다.
+        // * 웹 페이지 출력은 innerText 활용
+
+        let lottoPlay = function() {
+            let lottoNums = deduplicateNum(); 
+            const nums = document.getElementsByClassName("num");
+            //보너스번호는 id로 접근한다
+            const bonus = document.getElementById("bonus");
+            
+            for(let i =0; i<nums.length-1; i++){ //nums 0번째~5번쪠
+                nums[i].innerText =lottoNums[i];  
+            }
+            bonus.innerText = lottoNums[nums.length-1]; //6번쨰
+        }
+
+
+
+        let deduplicateNum = function() { //로또번호를 만들기위한 함수
+            let numbers =[]; //지역변수
+            for(let i=0; i<7; i++){  //7개 랜덤번호 생성을 위한 for문1
+                numbers[i] = parseInt(Math.random()*45)+1; 
+                
+                for(let j=0; j<i; j++){           //중복제거 for문2
+                    if(numbers[i]===numbers[j]){  // numbers[i]들어갈값 numbers[j]기존에 있던값과 같으면
+                        i--;                      //  같으면 i다시 
+                    }
+                }
+            }
+            console.log(numbers); 
+            return numbers;       
+        }
+        //deduplicateNum();
+          
+        
+
+        /*srart 내 풀이방법 
+        let lottoPlay = function(){
+            const num = document.getElementsByClassName("num");
+
+            let lottoNums = [];
+            while(lottoNums.length < 7 ){ //0~6 7개 값
+                let number = parseInt(Math.random()*45)+1; //0~1 -> 1~46 값
+                
+                if(lottoNums.indexOf(number) < 0){ // lottoNums배열안에 number값이 있으면 1,없으면 -1
+                    lottoNums.push(number);        // lottoNums 안에 number값 넣는다
+                }
+            }
+            for (var i = 0; i < num.length; i++) { //num 클래스 수 값
+                num[i].innerHTML = lottoNums[i]; //i번째 num클래스에 lottoNums배열의 i번째 값을 넣는다
+            }          
+        }
+        end 내 풀이방법*/
+       
+    </script>
+
+</body>
+</html>

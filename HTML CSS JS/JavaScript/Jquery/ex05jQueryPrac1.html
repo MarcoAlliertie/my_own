@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="./jquery-3.7.1.min.js"></script>
+<body>
+    <h1>
+        랜덤수 맞추기
+    </h1>
+    <input/>
+    <button>제출</button>
+    <h1 id = "test">
+        시도횟수 : 
+    </h1>
+    <script>
+        //0<Math.random()<1
+        let ranNum = parseInt(Math.random()*10)+1;
+        let cnt = 0;
+        //val() => form 요소(텍스트 상자, 체크 상자, 라디오 버튼, 등)에서 값을 가져오거나 설정하는 데에 자주 사용 
+        
+        $('button').click(()=>{
+            
+            cnt++
+            $('#test').text(`시도횟수 : ${cnt}`);
+            let inputNum = $('input').val()
+            console.log(inputNum);
+            if (inputNum == ranNum){
+                alert('정답입니다!');
+            }
+            else if(inputNum > ranNum){
+                alert('더 작은 수입니다');
+            }
+            else{
+                alert('더 큰 수입니다');
+            }
+        })
+    </script>
+</body>
+</html>

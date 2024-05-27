@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 실습문제</title>
+</head>
+<body>
+    <script>
+        console.log(calc());
+
+
+        function calc(num1,num2,op){
+        num1 = parseInt(prompt('첫 번째 숫자 입력'));
+        num2 = parseInt(prompt('두 번째 숫자 입력'));
+        op = (prompt('연산할 기호 입력'));
+        if (op == '+'){
+            return num1 + num2;
+        }else if(op == '-'){
+            return num1 - num2;
+        }else if(op == '*'){
+            return num1*num2;
+            }
+        else if(op == '/'){
+            return num1/num2;
+        }
+        else if(op === '%'){
+            return num1%num2;
+        }else{
+            return '잘못된 입력입니다';
+        }
+        }
+    
+   
+    </script>
+    
+</body>
+</html>

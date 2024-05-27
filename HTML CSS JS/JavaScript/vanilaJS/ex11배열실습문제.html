@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 실습문제</title>
+</head>
+<body>
+    <script>
+        array =[];
+        console.log(`1번 문제 : ${array.length}`);
+        array.push(35,73,68,82,94);
+        console.log(`2번 문제 : ${array}`);
+        console.log('3번 문제 : ')
+        for(let i=0;i<array.length;i++){
+            console.log(array[i]);
+        }
+        array[2] = 100;
+        console.log(`4번 문제 : ${array}`);
+        array.splice(1,1);
+        console.log(`5번 문제 : ${array}`);
+
+    </script>
+</body>
+</html>

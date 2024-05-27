@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table tag</title>
+</head>
+<body>
+    <!-- 
+    table : 테이블 공간 생성  
+    tr (table row) : 테이블 한 줄 생성
+    th (table head) : 제목 데이터 생성 
+    td (table data) : 일반 데이터 생성 
+    
+    colspan : column 묶음 (가로 셀 병합)
+    rowspan : row 묶음 (세로 셀 병합)
+     -->
+    <table border = "1px solid black">
+     <tr bgcolor="yellow">
+        <th>이름</th>
+        <th colspan="2">성별/주소</th>
+        <th>비고</th>
+        <!-- <th>주소</th> -->
+
+     </tr>  
+     <tr>
+        <td>홍길동</td>
+        <td>남자</td>
+        <td>광주</td>
+        <td rowspan="2"></td>
+     </tr> 
+     <!-- tr>td*3 -->
+     <tr>
+        <td>정민하</td>
+        <td>남자</td>
+        <td>광주</td>
+    </tr>
+
+    </table>
+</body>
+</html>

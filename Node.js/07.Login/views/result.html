@@ -1,0 +1,9 @@
+{%extends "layout.html"%}
+{%block content%}
+{%if userId === 'admin' and userPw ==='1234'%}
+<!-- nunjucks에서는 && 대신 and를 사용한다 -->
+<h2>로그인 시도 결과 : 성공!</h2>
+{%else%}
+<h2>로그인 시도 결과 : 실패</h2>
+{%endif%}
+{%endblock%}

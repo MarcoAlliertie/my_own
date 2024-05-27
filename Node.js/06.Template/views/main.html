@@ -1,0 +1,64 @@
+{%extends "layout.html"%}    
+
+{%block content%}
+
+    <!-- 
+        Nunjucks 사용법
+        => JS 문법을 사용하려면 중괄호 두 개로 감싸준다.
+        => 주석 안에서도 중괄호 쓰면 넌적스가 주석을 무시하고 JS 문법으로 동작하므로 주의.
+     -->
+    <h1>Welcome to the {{namek}} page!</h1>
+    <!-- 
+        1. 변수
+        set 변수명 = 값 : nunjucks 의 변수선언 명령문이 set
+     -->
+     {%set pos = 'C강의장'%}
+     <p>{{pos}} 여러분 안녕하세요</p>
+
+     <!--
+
+        2.조건문
+
+        if 조건식
+        elif 조건식2
+        else
+        endif
+      -->
+      {% set time = '오전' %}
+      {% if time === '오전'%}
+      <p>오전은 세영쌤과 Node.js 시간입니다!</p>
+      {%elif time === '오후'%}
+      <p>오후는 명진쌤과 React.js 시간입니다!</p>
+      {%else%}
+      <p>QR 잊지 마세요!</p>
+      {%endif%}
+    
+      <!-- 
+        3.반복문
+        for in + endfor
+        반복 시작 : for 변수 in 배열
+        반복 끝 : endfor
+        loop.index:item의 형태로 하면 인덱스 번호와 함께 추출할 수 있다.
+     -->
+     {%set menu = ['카레','돈까스','햄버거']%}
+     <ul>
+        {%for item in menu%}
+        <li>제가 좋아하는 것은 {{loop.index}}:{{item}}입니다.</li>
+        {% endfor %}
+     </ul>
+
+     <!--
+         4. include
+         다른 html 파일을 포함할 수 있는 것
+       -->
+      {% include "refer.html" %}
+
+      <!-- 
+         5. extends와 block
+         공통되는 레이아웃 부분을 따로 관리할 수 있음
+       -->
+
+{%endblock%}
+{%block lunch%}
+<span>오늘 점심은 과자입니다.</span>
+{%endblock%}

@@ -1,0 +1,41 @@
+## 파일 무시
+
+## 다음과 같은 확장자는 전체 무시
+# *.ppt
+*.exe
+*.zip
+*.pdf
+# *.pptx 
+*.lnk
+*.doc
+*.docx
+# *.hwp 
+*.ttf
+# *.jpg
+# *.jpeg
+# *.gif
+# *.png
+# *.bmp
+
+## 폴더 무시
+# 깃으로 올리기 애매한 작성자료들
+private/
+build/
+시험/
+project code/
+project_code/
+config/
+
+
+# 여기에 설치한 프로그램들...이런 건 가급적 여기에 설치하지 말자.
+Flutter SDK/
+node_modules/
+aclImdb/
+Tesseract-OCR/
+
+
+#깃에 올리면 안 되는 자료들
+포트폴리오 특강/
+정처기/
+교육자료/
+

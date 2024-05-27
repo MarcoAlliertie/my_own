@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    
+    <input type="text" id="taskInput" placeholder="할 일을 입력하세요">
+    <button id="addTaskBtn">추가</button>
+
+    <ul id="taskList">
+        <!-- 할 일 목록이 여기에 추가될 것입니다 -->
+    </ul>
+    <script>
+        //1. 할 일 추가 버튼 클릭시
+        // - 입력된 내용을 읽어와서 새로운 할 일 목록에 추가
+        $(document).on('click','#addTaskBtn',()=>{
+            const taskInput = $('#taskInput').val()
+        
+        //할 일을 입력, 입력하지 않는다면 경고창
+        //내가 할 일을 입력하면 ul 태그 안 li태그 위치 추가. append()
+        //추가가 되면 내가 입력한 input 태그는 비워져 있어야
+        if(taskInput !== ''){
+        $('#taskList').append(`<li>${taskInput}<button id = "removeTaskBtn">삭제</button></li>`);
+        $('#taskInput').val('');
+        }else{alert('할 일을 입력하시오');}
+        })
+
+        //2. 완료를 하지 못했을 때 
+        //미완료 내용에 대해 클릭을 했을 때 미완료로 변경
+         $(document).on('click','#taskList>li',function() {
+            $(this).text('미완료'); 
+         })
+
+        //3. 삭제 버튼 클릭 시
+        //- 클릭된 삭제 버튼이 속한 할 일을 목록에서 제거
+        //$(this).parent().remove() 
+        //closest('li') : 선택자와 일치하는 가장 가까운 상위요소를 찾아간다
+        // 부모 관련
+        // parent() : 가장 가까운 부모 요소 선택
+        // parents() : 모든 부모 요소 선택
+        // closest(원하는요소) : 모든 부모 요소 대상 원하는 요소 접근 가능
+
+        $(document).on('click','#removeTaskBtn',function(){
+            $(this).closest('li').remove();
+        // 혹은 이걸 써도 된다.
+        //     $(this).parent().remove();
+        })
+        
+    </script>
+</body>
+</html>

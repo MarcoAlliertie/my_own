@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열함수</title>
+</head>
+<body>
+    <script>
+        //자주 사용하는 배열함수
+        //1.배열.includes(찾고 싶은 요소)
+        let array = [1,2,3,4,5];
+        //array 배열 내 3이라는 데이터가 있는지 확인
+        console.log(array.includes(3));
+        //array 배열 내 9라는 데이터가 있는지 확인
+        console.log(array.includes(9));
+
+        //2. 배열.indexOf(인덱스 위치를 찾고 싶은 요소)
+        console.log(array.indexOf(2));
+        console.log(array.indexOf(10)); //없는 데이터를 찾으면 -1 반환
+
+        //3. 배열.slice(시작 인덱스, 끝 인덱스)
+        //끝 인덱스는 미만까지만 출력
+        console.log(array.slice(0,3));
+        //숫자 하나만 적으면 그걸 시작 인덱스로 하여 끝까지 출력
+        console.log(array.slice(3));
+
+
+        //4. fruits에 'water melon'을 'melon'으로 변경
+
+        let fruits = [
+            "apple", "avocado", "banana", "blueberry", "cherry", "dragon fruit", 
+            "fig", "grape", "kiwi", "lime", "mango", "orange", "oriental melon", "pear",
+            "peach", "pineapple", "shine muscat", "strawberry", "tomato", 
+            "water melon", "yuja"
+        ];
+        console.log(fruits.includes('water melon'));
+        let index = fruits.indexOf('water melon');
+        fruits[index] = 'melon';
+        console.log(fruits);
+        
+        //2차원 배열 생성
+        let array2 = [[1,2,3],[4,5,6],[7,8,9]]
+        console.log(array2);
+
+        // array2 배열 내 두번째 요소 안에 있는 '4'를 출력
+        console.log(array2[1][0]);
+
+        //array2 배열 내 3과 8을 더한 후 출력
+        console.log(array2[0][2] + array2[2][1]);
+    </script>
+</body>
+</html>

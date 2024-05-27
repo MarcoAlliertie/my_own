@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>증감연산자</title>
+</head>
+<body>
+    <script>
+        //증감연산자
+        //-숫자형 데이터를 가진 변수, 앞 또는 뒤에 증감연산자를 붙여
+        // 1을 증가 또는 감소하는 연산자
+        let num = 5;
+        console.log(num);
+        console.log(++num);
+        console.log(num++); //변수 먼저 읽어들인 뒤 증감을 하기 때문에 여기서는 당장은 값이 보이지 않는다.
+        console.log(num); //후위증감연산자의 계산값은 이렇게 다음에 읽어들일 때나 보임
+
+        let num1 = 10
+        let result = num1-- +5 + --num1; //9+5+9가 아니라 10+5+8! 후위증감연산자의 특성에 주의
+        console.log(num1,result);
+
+    </script>
+</body>
+</html>

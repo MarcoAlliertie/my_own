@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom prac2</title>
+</head>
+<body>
+    <img src="https://i.ytimg.com/vi/tXpd7pUj-0E/maxresdefault.jpg"
+    width="300px" id="imgId" class ="imgClass">
+    <br>
+    <button onclick="imgChange()">이미지 변경</button>
+    <script>
+        //<img> 태그의 src 속성은 이미지 소스의 주소 명시
+
+        let src1 = "https://i.ytimg.com/vi/rfmIwaiLDE8/maxresdefault.jpg";
+        let src2 = "https://i.ytimg.com/vi/tXpd7pUj-0E/maxresdefault.jpg";
+        const imgChange=()=>{
+            //이미지 요소를 가져오고 
+            let img = document.getElementById('imgId');
+            img = document.getElementsByClassName('imgClass')[0];
+            //TagName이나 ClassName은 유사 배열 형태 - 인덱싱 접근해야
+            img = document.querySelector('img');
+            img = document.querySelector('#imgId');
+            img = document.querySelector('.imgClass');
+            //src 속성을 비교해서 사진을 출력
+            if (img.src == src1){
+                img.src = src2;
+            }else{img.src = src1;
+            } 
+        };
+    </script>
+</body>
+</html>

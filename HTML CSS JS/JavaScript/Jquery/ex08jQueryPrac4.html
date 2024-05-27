@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prac4</title>
+    <script src="./jquery-3.7.1.min.js">   </script>
+</head>
+<body>
+
+    <input type="number" id ="heightInput" placeholder ="키(cm)">
+    <input type="number" id = "weightInput" placeholder="몸무게(kg)">
+    <button id ="calculateBtn">계산하기</button>
+    <p id ="result">BMI 결과: </p>
+ <script>
+    // BMI 계산 공식
+    // BMI = 체중(kg)/(신장(m)*신장(m))
+    // 18.5이하 저체중 
+    // 18.5 ~ 25 정상
+    // 25 ~ 30 과체중
+    // 30 ~ 35 비만
+
+    //계산하기 버튼을 눌렀을 때 이벤트 실행
+    $(document).on('click','#calculateBtn',()=>{
+    //input 태그 안에는 무조건 키와 몸무게가 들어가야 함
+    //키와 몸무게를 넣은 값을 가져와서 변수에 담아보자
+    const height = $('#heightInput').val()
+    const weight = $('#weightInput').val()
+
+    //조건문을 통해 키와 몸무게 입력됐을 때 bmi 구하는 계산 시작
+    if(height === '' || weight === '' ) {
+        alert('값을 입력하시오');
+    }else{
+
+    //다중 if문을 사용하여 조건을 걸어 결과를 출력한다.
+    
+        BMI = weight/((height/100)^2);
+    //최종 결과의 콘텐츠를 화면에 출력 소수점 2자리까지    
+        BMI = BMI.toFixed(2);
+        if(BMI<=18.5){
+            $('#result').text(`당신의 BMI는 ${BMI}로 저체중입니다`);
+        }else if(BMI<=25){
+            $('#result').text(`당신의 BMI는 ${BMI}로 정상입니다`);
+        }else if(BMI<=30){
+            $('#result').text(`당신의 BMI는 ${BMI}로 과체중입니다`);
+        }else{
+            $('#result').text(`당신의 BMI는 ${BMI}로 비만입니다`);
+        }
+        }})
+        
+
+ </script>   
+
+
+</body>
+</html>
